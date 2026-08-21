@@ -904,10 +904,10 @@ a:hover { text-decoration:underline; }
   </div>
   <div class="global-search">
     <span class="gs-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="全局搜索（如：七夕 / AI / 李昀锐）" autocomplete="off" oninput="globalSearch(this.value)">
+    <input type="text" id="searchInput" placeholder="全局搜索全部历史（如：七夕 / AI / 李昀锐）" autocomplete="off" oninput="globalSearch(this.value)">
     <div class="search-pop" id="searchPop">
       <div class="search-scope">
-        <label><input type="checkbox" id="searchFull" onchange="globalSearch(document.getElementById('searchInput').value)"> 包含全部历史（CDN）</label>
+        <label><input type="checkbox" id="searchFull" checked onchange="globalSearch(document.getElementById('searchInput').value)"> 包含全部历史（30天/CDN）</label>
         <span id="searchScopeNote" style="margin-left:8px;font-size:11px;color:#BFAAB2;"></span>
       </div>
       <div id="searchResults"></div>
@@ -1016,7 +1016,7 @@ a:hover { text-decoration:underline; }
     <h2><span class="icon">📆</span> 营销日历</h2>
     <span class="mod-badge">480 个营销节点 · 107 个可借势</span>
   </div>
-  <p class="sec-desc">全年营销节点完整收录。高热度&amp;高契合度节点以 ⭐ 星标提示；与品牌契合度较低的节点未做借势营销建议。未来2月星标节点自动提取至「本周行动清单」高亮，便于提前规划借势。点击任意节点可查看详情。</p>
+  <p class="sec-desc">高热度&amp;高契合度节点以 ⭐ 星标提示；与品牌契合度较低的节点未做借势营销建议。未来2月星标节点自动提取至「本周行动清单」高亮，便于提前规划借势。点击任意节点可查看详情。</p>
   <div class="mod-body">
         <div class="cal-controls">
           <div class="cal-month-switch">
@@ -1051,7 +1051,7 @@ a:hover { text-decoration:underline; }
     <h2><span class="icon">🆕</span> 新品上新</h2>
     <span class="mod-badge">24 款新品 · 竞品近一周 / 本品近一月</span>
   </div>
-  <p class="sec-desc">数据源：抖音电商（蝉妈妈选品库，近7日新上架），按上新时间倒序；花间颂 / 方里 / 芭贝拉 / 嘉利玛标「核心竞对」，美诺标「本品」（本品放宽至近一月，确保本品上新可见）。</p>
+  <p class="sec-desc">抖音电商（蝉妈妈选品库，近7日新上架，每3天更新1次），按上新时间倒序排列；花间颂 / 方里 / 芭贝拉 / 嘉利玛标「核心竞对」，美诺标「本品」。</p>
   <div class="mod-body" style="overflow-x:auto;">
     <div class="prod-brand-filters">
       <span class="prod-brand-filters-label">品牌筛选：</span>

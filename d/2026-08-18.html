@@ -1749,7 +1749,8 @@ function loadHistIndex(cb){
     const box = document.getElementById('searchResults');
     box.innerHTML = '<div class="search-empty">历史索引暂不可用：未找到 search_index.json（本地与 CDN 均无）</div>';
   };
-  fetch('./search_index.json').then(function(r){ if(!r.ok) throw 0; return r.json(); })
+  // V23.2：统一走站点根目录的 search_index.json，避免 /d/ 快照页相对路径解析到不存在的 /d/search_index.json 后落入 CDN 缓存旧版。
+  fetch('/search_index.json').then(function(r){ if(!r.ok) throw 0; return r.json(); })
     .then(function(idx){ SEARCH_HIST = (idx && idx.items) || []; SEARCH_HIST_LOADING = false; cb(); })
     .catch(function(){
       if(CDN_BASE){

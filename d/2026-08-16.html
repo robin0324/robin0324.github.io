@@ -658,7 +658,7 @@ a:hover { text-decoration:underline; }
   display:flex; align-items:center; gap:6px;
 }
 .topic-data::before { content:'📊'; font-size:14px; }
-.topic-ideas { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; }
+.topic-ideas { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:8px; }
 .topic-idea-card {
   padding:10px 12px; border-radius:8px; background:var(--bg); border:1px solid var(--border);
   font-size:12px; line-height:1.55;
@@ -960,7 +960,7 @@ a:hover { text-decoration:underline; }
 </style>
 <div class="overview-bar">
   <div class="ov-title">📊 今日数据总览 · 2026-08-16（仅当日新收录）</div>
-  <div class="ov-grid"><a class="ov-card" href="#sec-must" onclick="document.getElementById('sec-must').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">今日精选</div><div class="ov-num">1<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-endorse" onclick="document.getElementById('sec-endorse').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">明星代言</div><div class="ov-num">41<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-cases" onclick="document.getElementById('sec-cases').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">营销动态</div><div class="ov-num">8<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-hot" onclick="document.getElementById('sec-hot').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">平台热点</div><div class="ov-num">0<span class="ov-unit">个</span></div></a><a class="ov-card" href="#sec-products" onclick="document.getElementById('sec-products').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">新品上新</div><div class="ov-num">5<span class="ov-unit">款</span></div></a><a class="ov-card" href="#sec-ai" onclick="document.getElementById('sec-ai').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">AI营销前沿</div><div class="ov-num">0<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-reports" onclick="document.getElementById('sec-reports').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">行业报告</div><div class="ov-num">10<span class="ov-unit">篇</span></div></a><a class="ov-card" href="#sec-trends" onclick="document.getElementById('sec-trends').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">行业趋势</div><div class="ov-num">3<span class="ov-unit">条</span></div></a></div>
+  <div class="ov-grid"><a class="ov-card" href="#sec-must" onclick="document.getElementById('sec-must').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">今日精选</div><div class="ov-num">1<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-endorse" onclick="document.getElementById('sec-endorse').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">明星代言</div><div class="ov-num">41<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-cases" onclick="document.getElementById('sec-cases').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">营销动态</div><div class="ov-num">8<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-hot" onclick="document.getElementById('sec-hot').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">平台热点</div><div class="ov-num">0<span class="ov-unit">个</span></div></a><a class="ov-card" href="#sec-products" onclick="document.getElementById('sec-products').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">新品上新</div><div class="ov-num">16<span class="ov-unit">款</span></div></a><a class="ov-card" href="#sec-ai" onclick="document.getElementById('sec-ai').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">AI营销前沿</div><div class="ov-num">0<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-reports" onclick="document.getElementById('sec-reports').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">行业报告</div><div class="ov-num">10<span class="ov-unit">篇</span></div></a><a class="ov-card" href="#sec-trends" onclick="document.getElementById('sec-trends').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">行业趋势</div><div class="ov-num">5<span class="ov-unit">条</span></div></a></div>
 </div>
 
 <!-- 1. 今日精选（V13 升级） -->
@@ -1091,7 +1091,7 @@ a:hover { text-decoration:underline; }
 <section class="module" id="sec-reports">
   <div class="mod-header">
     <h2><span class="icon">📑</span> 行业报告</h2>
-    <span class="mod-badge">8 份 · 当日新增</span>
+    <span class="mod-badge">10 份 · 当日新增</span>
   </div>
   <p class="sec-desc">仅展示当日（2026-08-16）新收录的行业报告，历史不累加；重点报告整理摘要、来源与链接，标「重点」的为必读核心报告。</p>
   <div class="mod-body">

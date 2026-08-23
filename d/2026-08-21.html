@@ -252,23 +252,6 @@ a:hover { text-decoration:underline; }
 }
 .mod-body { padding:18px 24px 24px; }
 
-/* ─── 舆情监控入口卡 ─── */
-.nav-sentinel { background:linear-gradient(135deg,#7B1FA2,#9C27B0); color:#fff !important; border-radius:14px; padding:5px 14px !important; font-weight:700; }
-.nav-sentinel:hover { background:linear-gradient(135deg,#6A1B9A,#7B1FA2); color:#fff !important; text-decoration:none; }
-.sentiment-entry { display:flex; flex-direction:column; gap:14px; }
-.sentiment-entry-desc { margin:0; font-size:14px; line-height:1.7; color:var(--text2); }
-.sentiment-entry-desc b { color:var(--brand); }
-.sentiment-entry-tags { display:flex; flex-wrap:wrap; gap:8px; }
-.sentiment-entry-tags span {
-  padding:4px 12px; border-radius:14px; font-size:12px; font-weight:600;
-  background:#F3E5F5; color:#7B1FA2; border:1px solid #E1BEE7;
-}
-.sentiment-entry-btn {
-  align-self:flex-start; padding:10px 22px; border-radius:24px; font-size:14px; font-weight:700;
-  background:linear-gradient(135deg,#7B1FA2,#9C27B0); color:#fff; text-decoration:none;
-  box-shadow:0 4px 12px rgba(123,31,162,.25); transition:all .2s;
-}
-.sentiment-entry-btn:hover { transform:translateY(-2px); box-shadow:0 6px 16px rgba(123,31,162,.35); color:#fff; text-decoration:none; }
 
 /* ─── 今日必看 ─── */
 .must-see-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
@@ -890,7 +873,6 @@ a:hover { text-decoration:underline; }
   <div class="side-group">专题区</div>
   <nav class="sidebar-nav">
     <a href="#sec-ai" onclick="scrollToSec('sec-ai',this);return false;"><span class="nav-emoji">🤖</span>AI 营销前沿</a>
-    <a href="../sentiment.html?date=2026-08-21" target="_blank" rel="noopener"><span class="nav-emoji">🛡️</span>舆情监控</a>
   </nav>
   <div class="side-group">资料区</div>
   <nav class="sidebar-nav">
@@ -1144,22 +1126,6 @@ a:hover { text-decoration:underline; }
     <div class="act-block">
       <h3 class="act-title">✅ 本周行动清单</h3>
       <div class="act-list"><div class="act-item act-highlight"><div class="act-text">⭐ 重点节点预告：10/01 国庆节（公历）— 建议提前规划借势内容与排期</div><div class="act-owner">👤 日历</div><span class="act-status st-todo">待规划</span></div><div class="act-item act-highlight"><div class="act-text">⭐ 重点节点预告：09/25 中秋节（农历）— 建议提前规划借势内容与排期</div><div class="act-owner">👤 日历</div><span class="act-status st-todo">待规划</span></div><div class="act-item act-highlight"><div class="act-text">⭐ 重点节点预告：09/17 世界骑行日（国际节日）— 建议提前规划借势内容与排期</div><div class="act-owner">👤 日历</div><span class="act-status st-todo">待规划</span></div><div class="act-item"><div class="act-text">启动美诺粉饼实拍素材→AI 批量 50 变体灰度测试（千川·乘方/即创/巨量创意），两周内出 ROI 复盘，验证 0.6% 免佣政策下的素材量产可行性</div><div class="act-owner">👤 电商/媒介</div><span class="act-status st-doing">进行中</span></div><div class="act-item"><div class="act-text">把小红书「控油持妆/平价/学生党/干皮油皮」核心搜索词做搜索卡位+妆教内容矩阵，对标 4400 万次/日美护搜索的承接红利</div><div class="act-owner">👤 内容/媒介</div><span class="act-status st-doing">进行中</span></div><div class="act-item"><div class="act-text">复盘 8/20 GOODBAI×丝芙兰「配饰化美妆」案例：评估美诺萌兰/小熊 IP 挂件+粉饼组合的礼赠化/配饰化试点（成本控制在轻资产范围）</div><div class="act-owner">👤 品牌/产品</div><span class="act-status st-todo">待启动</span></div><div class="act-item"><div class="act-text">跟进中秋（9/25）节点：结合「鲜花+美妆」连带订单 +43% 与三四线增速，设计中秋礼赠组合与达人合作排期</div><div class="act-owner">👤 媒介/内容</div><span class="act-status st-todo">规划中</span></div><div class="act-item"><div class="act-text">合规信任营销窗口：整理美诺粉饼备案编号/检测报告等可核验信息，在「网红面霜激素翻车」舆论下做成分透明传播</div><div class="act-owner">👤 品牌</div><span class="act-status st-todo">规划中</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="module" id="sec-sentiment">
-  <div class="mod-header">
-    <h2><span class="icon">🛡️</span> 舆情监控</h2>
-    <span class="mod-badge">WebSearch 为主 · 登录态补充</span>
-  </div>
-  <div class="mod-body">
-    <div class="sentiment-entry">
-      <p class="sentiment-entry-desc">实时监测 <b>美诺 MENOW</b> 及竞品（方里 / 芭贝拉 / 嘉利玛 / 花间颂）在微博、小红书、抖音、快手、电商评价等平台的品牌口碑、负面预警、社媒热点话题与代言人舆情。</p>
-      <div class="sentiment-entry-tags">
-        <span>品牌口碑 / 声量</span><span>负面预警 / 危机</span><span>社媒热点话题</span><span>明星 / 代言人舆情</span>
-      </div>
-      <a class="sentiment-entry-btn" href="../sentiment.html?date=2026-08-21" target="_blank" rel="noopener">进入舆情专题页 →</a>
     </div>
   </div>
 </section>

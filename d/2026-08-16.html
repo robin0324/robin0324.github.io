@@ -152,16 +152,22 @@ a:hover { text-decoration:underline; }
 .search-empty { padding:22px 16px; text-align:center; color:var(--text2); font-size:13px; }
 .search-loading { padding:18px 16px; text-align:center; color:var(--brand); font-size:13px; font-weight:600; }
 
-/* ─── V22.1 日历快捷按钮（前一天/今天/后一天） ─── */
+/* ─── V22.1 日历快捷按钮（前一天/今天/后一天）·V23 粉色主视觉 ─── */
 .cal-quick { display:flex; align-items:center; gap:6px; }
 .cal-quick button {
-  height:28px; padding:0 10px; border-radius:14px; border:1px solid var(--border);
-  background:#fff; font-size:12px; font-weight:600; color:var(--text2); cursor:pointer;
+  height:28px; padding:0 12px; border-radius:14px; border:1px solid var(--brand);
+  background:var(--brand-light); font-size:12px; font-weight:600; color:var(--brand-dark); cursor:pointer;
   transition:all .18s; white-space:nowrap;
 }
-.cal-quick button:hover:not(:disabled) { border-color:var(--brand); color:var(--brand); background:var(--brand-light); }
-.cal-quick button:disabled { opacity:.35; cursor:not-allowed; }
-.cal-quick button.cq-today { background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#fff; border-color:transparent; }
+.cal-quick button:hover:not(:disabled) {
+  border-color:var(--brand-2); color:#fff; background:var(--brand-2);
+  box-shadow:0 2px 8px rgba(224,123,166,.35);
+}
+.cal-quick button:disabled { opacity:.4; cursor:not-allowed; }
+.cal-quick button.cq-today {
+  background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#fff; border-color:transparent;
+  box-shadow:0 2px 8px rgba(224,123,166,.4);
+}
 .cal-quick button.cq-today:hover:not(:disabled) { background:var(--brand-dark); color:#fff; }
 .date-picker { margin-left:2px; }
 
@@ -916,9 +922,9 @@ a:hover { text-decoration:underline; }
   <div class="topbar-right">
     <div class="date-picker">
       <div class="cal-quick">
-        <button onclick="quickDate(-1)" id="btnPrevDay" title="前一天">← 前一天</button>
+        <button onclick="quickDate(-1)" id="btnPrevDay" title="前一天">‹ 前一天</button>
         <button onclick="quickDate(0)" id="btnToday" title="回到今天">今天</button>
-        <button onclick="quickDate(1)" id="btnNextDay" title="后一天">后一天 →</button>
+        <button onclick="quickDate(1)" id="btnNextDay" title="后一天">后一天 ›</button>
       </div>
       <label onclick="toggleCalPopup(event)">📅</label>
       <div class="date-trigger" onclick="toggleCalPopup(event)" id="dateTrigger">2026-08-16</div>
@@ -953,7 +959,7 @@ a:hover { text-decoration:underline; }
 .ov-card{display:flex;flex-direction:column;gap:4px;padding:12px 10px;background:#fff;border:1px solid #eaeef6;border-radius:11px;text-decoration:none;transition:transform .15s,box-shadow .15s,border-color .15s;}
 .ov-card:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(255,120,150,.18);border-color:#ffc2d1;}
 .ov-label{font-size:12px;color:#7a89a8;white-space:nowrap;}
-.ov-num{font-size:26px;font-weight:800;color:#ff5b82;line-height:1;font-variant-numeric:tabular-nums;}
+.ov-num{font-size:26px;font-weight:800;color:var(--brand);line-height:1;font-variant-numeric:tabular-nums;}
 .ov-unit{font-size:12px;font-weight:600;color:#b0bcd4;margin-left:3px;}
 @media(max-width:1100px){.ov-grid{grid-template-columns:repeat(4,1fr);}}
 @media(max-width:560px){.ov-grid{grid-template-columns:repeat(2,1fr);}.ov-num{font-size:22px;}}

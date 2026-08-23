@@ -946,6 +946,23 @@ a:hover { text-decoration:underline; }
 
 <div class="main-wrap">
 
+<style>
+.overview-bar{margin:14px 0 4px;padding:14px 16px;background:linear-gradient(135deg,#fff,#f5f8ff);border:1px solid #e6ecf7;border-radius:14px;box-shadow:0 2px 10px rgba(120,140,200,.08);}
+.ov-title{font-size:13px;font-weight:700;color:#5b6b8c;letter-spacing:.5px;margin-bottom:10px;}
+.ov-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;}
+.ov-card{display:flex;flex-direction:column;gap:4px;padding:12px 10px;background:#fff;border:1px solid #eaeef6;border-radius:11px;text-decoration:none;transition:transform .15s,box-shadow .15s,border-color .15s;}
+.ov-card:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(255,120,150,.18);border-color:#ffc2d1;}
+.ov-label{font-size:12px;color:#7a89a8;white-space:nowrap;}
+.ov-num{font-size:26px;font-weight:800;color:#ff5b82;line-height:1;font-variant-numeric:tabular-nums;}
+.ov-unit{font-size:12px;font-weight:600;color:#b0bcd4;margin-left:3px;}
+@media(max-width:1100px){.ov-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:560px){.ov-grid{grid-template-columns:repeat(2,1fr);}.ov-num{font-size:22px;}}
+</style>
+<div class="overview-bar">
+  <div class="ov-title">📊 今日数据总览 · 2026-08-17（仅当日新收录）</div>
+  <div class="ov-grid"><a class="ov-card" href="#sec-must" onclick="document.getElementById('sec-must').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">今日精选</div><div class="ov-num">6<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-endorse" onclick="document.getElementById('sec-endorse').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">明星代言</div><div class="ov-num">41<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-cases" onclick="document.getElementById('sec-cases').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">营销动态</div><div class="ov-num">12<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-hot" onclick="document.getElementById('sec-hot').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">平台热点</div><div class="ov-num">4<span class="ov-unit">个</span></div></a><a class="ov-card" href="#sec-products" onclick="document.getElementById('sec-products').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">新品上新</div><div class="ov-num">7<span class="ov-unit">款</span></div></a><a class="ov-card" href="#sec-ai" onclick="document.getElementById('sec-ai').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">AI营销前沿</div><div class="ov-num">0<span class="ov-unit">条</span></div></a><a class="ov-card" href="#sec-reports" onclick="document.getElementById('sec-reports').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">行业报告</div><div class="ov-num">11<span class="ov-unit">篇</span></div></a><a class="ov-card" href="#sec-trends" onclick="document.getElementById('sec-trends').scrollIntoView({behavior:'smooth'});return false;"><div class="ov-label">行业趋势</div><div class="ov-num">4<span class="ov-unit">条</span></div></a></div>
+</div>
+
 <!-- 1. 今日精选（V13 升级） -->
 <section class="module" id="sec-must">
   <div class="mod-header">
@@ -1211,8 +1228,8 @@ function quickDate(offset){
 }
 
 // ─── 日期切换（日历弹窗） ───
-const AVAILABLE_DATES = ["2026-08-22", "2026-08-21", "2026-08-20", "2026-08-19", "2026-08-18", "2026-08-17", "2026-08-16", "2026-08-15"];  // 由 Python 注入
-const LOCAL_DATES = ["2026-08-22", "2026-08-21", "2026-08-20", "2026-08-19", "2026-08-18", "2026-08-17", "2026-08-16", "2026-08-15"];      // 由 Python 注入（最近 KEEP_DAYS_LOCAL 天，本地 d/ 已部署）
+const AVAILABLE_DATES = ["2026-08-23", "2026-08-22", "2026-08-21", "2026-08-20", "2026-08-19", "2026-08-18", "2026-08-17", "2026-08-16", "2026-08-15"];  // 由 Python 注入
+const LOCAL_DATES = ["2026-08-23", "2026-08-22", "2026-08-21", "2026-08-20", "2026-08-19", "2026-08-18", "2026-08-17", "2026-08-16", "2026-08-15"];      // 由 Python 注入（最近 KEEP_DAYS_LOCAL 天，本地 d/ 已部署）
 const CDN_BASE = "https://cdn.jsdelivr.net/gh/robin0324/menow-intel-data@main";         // 由 Python 注入（历史快照 CDN 基址，空则仅本地窗口可用）
 let cpY, cpM; // 当前弹窗显示的年月
 

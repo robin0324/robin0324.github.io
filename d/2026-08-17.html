@@ -854,6 +854,87 @@ a:hover { text-decoration:underline; }
   .case-side, .topic-side, .trend-side, .end-right { min-width:auto; align-items:flex-end; width:100%; }
   .case-item, .topic-item, .trend-item, .end-item, .mn-item, .rep-item { flex-direction:column; }
 }
+
+/* ─── V23 移动端精修（仅窄屏生效，PC 端布局与样式完全不变） ─── */
+@media(max-width:560px){
+  .topbar { height:48px; padding:0 10px; gap:8px; }
+  .hamburger { width:34px; height:34px; }
+  .topbar-brand { gap:6px; }
+  .topbar-brand img { height:24px; }
+  .topbar-title { display:none; }
+  .global-search { width:auto; flex:1; min-width:0; }
+  .global-search input { height:34px; font-size:13px; }
+  .search-pop { left:0; right:0; width:auto; max-width:none; }
+  .cal-quick { display:none; }
+  .date-picker label { font-size:14px; }
+  .date-trigger { padding:5px 10px; font-size:13px; }
+  .ov-num { font-size:22px; }
+  .mod-header { padding:13px 14px 9px; }
+  .mod-header h2 { font-size:16px; }
+  .mod-header h2 .icon { font-size:20px; }
+  .mod-body { padding:13px 14px 18px; }
+  .main-wrap { padding:10px 8px 40px; }
+  .case-item, .topic-item, .trend-item, .end-item, .mn-item, .rep-item { padding:13px 14px; }
+  .end-risk-note { font-size:10px; }
+  .overlay { padding:12px; }
+  .modal { max-height:90vh; }
+  .prod-table { font-size:12px; }
+  .prod-table thead th, .prod-table tbody td { padding:9px 10px; }
+  img { max-width:100%; height:auto; }
+  /* 持续关注：修复长文本溢出 */
+  .watch-block { margin:6px 12px 18px; padding:12px 14px; }
+  .watch-list { grid-template-columns:1fr; gap:10px; }
+  .watch-item { min-width:0; }
+  .watch-text { flex:1; min-width:0; overflow-wrap:break-word; word-break:break-word; }
+  /* 明星代言：卡片式紧凑布局（日期/心动值/风险并排在左上+右上） */
+  .end-item { display:grid; grid-template-areas:"date right" "info info"; grid-template-columns:1fr auto; gap:8px 10px; padding:14px; align-items:start; }
+  .end-date { grid-area:date; width:auto; display:flex; align-items:baseline; gap:3px; padding:0; text-align:left; }
+  .end-date .d-day { font-size:16px; }
+  .end-date .d-month { font-size:10px; }
+  .end-right { grid-area:right; flex-direction:row; align-items:center; gap:8px; min-width:auto; width:auto; }
+  .end-heart { margin:0; padding:4px 8px; }
+  .end-heart-val { font-size:13px; }
+  .end-heart-cap { font-size:9px; }
+  .end-risk-wrap { min-width:auto; align-items:center; gap:2px; }
+  .end-risk { padding:3px 8px; font-size:11px; min-width:auto; }
+  .end-risk-label { display:none; }
+  .end-info { grid-area:info; min-width:0; }
+  .end-brand { overflow-wrap:break-word; word-break:break-word; }
+  .end-tags { margin-bottom:4px; }
+  .end-block { flex-direction:column; gap:4px; padding:8px 10px; }
+  .end-block-label { align-self:flex-start; }
+  .end-hashtag { max-width:100%; }
+  .end-hashtag-link { overflow-wrap:break-word; word-break:break-word; }
+  .end-tip { white-space:normal; font-size:10px; }
+  /* 营销日历：横向滚动看全局 */
+  #sec-calendar .mod-body { overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:8px; }
+  .cal-grid { min-width:560px; }
+  .cal-day { aspect-ratio:auto; min-height:60px; padding-top:4px; }
+  .cal-head { padding:6px 0; font-size:11px; }
+  .cal-num { font-size:12px; }
+  .cal-controls { gap:8px; padding-bottom:8px; }
+  .cal-month-switch { gap:6px; }
+  .cal-current-month { font-size:14px; }
+  .cal-arrow, .cal-today-btn, .cal-type-reset { padding:4px 8px; font-size:11px; }
+}
+@media(max-width:380px){
+  .topbar { gap:6px; padding:0 8px; }
+  .date-picker label { display:none; }
+  .date-trigger { padding:5px 8px; font-size:12px; }
+  .global-search input { padding:0 12px 0 30px; }
+  .gs-icon { left:10px; }
+  .mod-header h2 { font-size:15px; }
+  .main-wrap { padding:8px 6px 36px; }
+  .mod-body { padding:12px 10px 16px; }
+  .mod-header { padding:12px 10px 8px; }
+  .ov-label { font-size:11px; }
+  .ov-num { font-size:20px; }
+  .end-item { gap:6px 8px; padding:12px; }
+  .end-date .d-day { font-size:15px; }
+  .end-heart { padding:3px 6px; }
+  .cal-grid { min-width:480px; }
+  .cal-day { min-height:54px; }
+}
 </style>
 </head>
 <body>

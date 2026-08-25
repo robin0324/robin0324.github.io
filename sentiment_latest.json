@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "version": "23.0",
+    "monitor_date": "2026-08-25",
+    "event_date": "2026-08-24",
+    "brand": "美诺 MENOW",
+    "data_as_of": "2026-08-25T09:47:54+08:00",
+    "date": "2026-08-25",
+    "collection_stats": {
+      "小红书": {
+        "list_total": 0,
+        "candidates": 0,
+        "excluded": 0,
+        "excluded_by_reason": {},
+        "collected": 0,
+        "detail_ok": 0,
+        "detail_blocked": 0,
+        "fetched_at": ""
+      },
+      "抖音": {
+        "list_total": 0,
+        "candidates": 0,
+        "excluded": 0,
+        "excluded_by_reason": {},
+        "collected": 0,
+        "detail_ok": 0,
+        "detail_blocked": 0,
+        "fetched_at": ""
+      },
+      "微博": {
+        "list_total": 0,
+        "candidates": 0,
+        "excluded": 0,
+        "excluded_by_reason": {},
+        "collected": 0,
+        "detail_ok": 0,
+        "detail_blocked": 0,
+        "fetched_at": ""
+      }
+    }
+  },
+  "risks": [],
+  "hot_topics": [
+    {
+      "platform": "搜狐/什么值得买/京东",
+      "topic": "8/24 多平台平价粉饼横评继续点名美诺：「粉质细腻」「控油强」「白菜价」「学生党可入」",
+      "volume": "开学季搜索热度上升",
+      "brand": "美诺",
+      "sentiment_level": "positive",
+      "source_url": "https://www.sohu.com/a/1065773124_122645243",
+      "event_date": "2026-08-24",
+      "publish_date": "2026-08-24",
+      "used_hy3": true,
+      "ai_sentiment": "positive",
+      "ai_reason": "多平台横评点名美诺控油持妆、白菜价，正向种草",
+      "ai_relevant": "related",
+      "monitor_date": "2026-08-25",
+      "time_missing": false,
+      "date": "2026-08-24",
+      "from": "websearch_baseline",
+      "source_type": "websearch_baseline"
+    },
+    {
+      "platform": "搜狐",
+      "topic": "嘉利玛防晒金币粉饼 VS 美诺冰肌蓝横评：美诺控油更猛、持妆更久",
+      "volume": "学生党/油皮搜索",
+      "brand": "美诺",
+      "sentiment_level": "positive",
+      "source_url": "https://www.sohu.com/a/1066185650_122645243",
+      "event_date": "2026-08-24",
+      "publish_date": "2026-08-24",
+      "used_hy3": true,
+      "ai_sentiment": "positive",
+      "ai_reason": "横评认为美诺控油与持妆优于竞品，正向",
+      "ai_relevant": "related",
+      "monitor_date": "2026-08-25",
+      "time_missing": false,
+      "date": "2026-08-24",
+      "from": "websearch_baseline",
+      "source_type": "websearch_baseline"
+    },
+    {
+      "platform": "京东",
+      "topic": "京东美诺粉饼好评率维持 96%，50000+ 评论，「平价好用」心智稳定",
+      "volume": "电商评价",
+      "brand": "美诺",
+      "sentiment_level": "positive",
+      "source_url": "https://union-click.jd.com/jdc?e=&p=JF8BAasJK1olWAcDUVlfAEsUB18IGloVXA8KXVZbDE4nRzBQRQQlBENHFRxWFlVWQDEXR0ROCBlQCgJDVBtKXnFYSR5NGlIcUVoabhJnX2dda1lNVQF3Cj4PfSxNBylaRDxwDxhaCwsJQVRORjNVFRlPGQp6FQ4jSSBXemhhbDt-IVBwFiEdSCt8BWZ9Ty0XLwNsViEhCE9EVW5UbV1-CVILViEBHw9IWzFXRgtKCGNKFQpRCFxLUzdXeQFRUQYDVV5cAUMeC2kMHmtlQ313VSMvQSgWXwQJbz99J0MEJBobBEcnB2kLHV8UXAcBZF5cCUoWCmcBE1klWQBsVTBdAU55VGkMS1kVDwMBBl5bXEpEV18IGmtFMw4KXF5VD00TCmYPK1olXQALUlleCEMQAWgLE2sVVQIyg_fz3sex19aizOmXbTYyV25tOEgRM2w4RTUUWlZWUF5aDSVLRmlDUwdSFGgEU1hcDE0eCl8KGloXXzYyZCYcWDVWaC9xHDJiPW1-AiwfdwtXYwQOEi5BKwRwUTBfdzcXBzxeGgdjW21WAFdfdxcnA18IGVsSbQcy",
+      "event_date": "2026-08-24",
+      "publish_date": "2026-08-24",
+      "used_hy3": true,
+      "ai_sentiment": "positive",
+      "ai_reason": "京东商品页高好评率反映稳定口碑",
+      "ai_relevant": "related",
+      "monitor_date": "2026-08-25",
+      "time_missing": true,
+      "date": "2026-08-24",
+      "from": "websearch_baseline",
+      "source_type": "websearch_baseline"
+    }
+  ],
+  "dropdown_words": [
+    {
+      "word": "美诺粉饼 学生党",
+      "negative": false,
+      "platform": [
+        "小红书搜索",
+        "抖音搜索",
+        "微博"
+      ],
+      "source_url": "",
+      "date": "2026-08-24",
+      "event_date": "2026-08-24"
+    },
+    {
+      "word": "美诺防晒粉饼 军训",
+      "negative": false,
+      "platform": [
+        "小红书搜索",
+        "抖音搜索"
+      ],
+      "source_url": "",
+      "date": "2026-08-24",
+      "event_date": "2026-08-24"
+    },
+    {
+      "word": "美诺粉饼 结块",
+      "negative": true,
+      "platform": [
+        "什么值得买",
+        "小红书搜索联想"
+      ],
+      "source_url": "",
+      "date": "2026-08-24",
+      "event_date": "2026-08-24"
+    }
+  ],
+  "trend": [
+    {
+      "date": "2026-08-16",
+      "count": 5
+    },
+    {
+      "date": "2026-08-17",
+      "count": 5
+    },
+    {
+      "date": "2026-08-18",
+      "count": 6
+    },
+    {
+      "date": "2026-08-19",
+      "count": 7
+    },
+    {
+      "date": "2026-08-20",
+      "count": 4
+    },
+    {
+      "date": "2026-08-21",
+      "count": 4
+    },
+    {
+      "date": "2026-08-22",
+      "count": 3
+    },
+    {
+      "date": "2026-08-23",
+      "count": 2
+    },
+    {
+      "date": "2026-08-24",
+      "count": 3
+    }
+  ],
+  "platform_dist": [
+    {
+      "platform": "公开横评/电商口碑",
+      "count": 3
+    }
+  ],
+  "platform_summary": {},
+  "suggestions": [
+    "8/24 多平台横评继续点名美诺「粉质细腻」「控油强」「白菜价」：建议在开学季内容中强化「10g 大容量/单克成本最低」与「暴汗不脱妆」差异化卖点，维持正向舆情密度。",
+    "「美诺粉饼 结块」搜索联想仍在：继续准备统一回应口径（防潮存放+粉扑清洁），并在开学季内容中主动做「不易结块/久放不干」正向对冲。",
+    "开学季「军训伪素颜」= 美诺主战场：防晒粉饼+嘟嘟鸭联名款已被多平台推荐，加做「干皮散粉油皮粉饼+涂防晒成膜再压粉」分肤质攻略，抢占搜索卡位。"
+  ],
+  "overview": {
+    "total_mentions": 3,
+    "risk_count": 0,
+    "positive_count": 3,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "competitor_risks": 0,
+    "summary": "8/24（监测日 8/25）WebSearch 基线显示美诺舆情整体正向：多平台粉饼横评点名美诺控油持妆、白菜价，京东好评率 96%；风险与负面声量未新增；详细登录态数据待 10:00 独立流程补充。"
+  }
+}

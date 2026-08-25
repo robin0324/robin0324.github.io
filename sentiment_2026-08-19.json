@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "version": "20.1",
+    "date": "2026-08-19",
+    "model": "event_date_incremental",
+    "note": "每条含 event_date（实际发生日）；渲染只显示「监测日前1天发生」的条目；快照类字段取最新"
+  },
+  "risks": [
+    {
+      "level": "light_negative",
+      "source": "行业测评",
+      "account": "",
+      "heat": "低",
+      "date": "2026-08-19",
+      "text": "2026 蜜粉饼/粉饼横评与选购指南普遍提醒：美诺经典粉饼干皮使用需做好妆前保湿，否则鼻翼处会微微起皮；属「产品使用注意」类轻度负面，非质量缺陷，但易被断章取义放大。本期横评中美诺萌兰限定款表现亮眼（8.3μm粒径/皮脂吸附4.2mg/cm²·h），但干皮保湿提示仍被多篇测评提及。",
+      "disposal": "在种草内容 / 商品详情中补充「干皮妆前保湿」使用提示，降低误用导致的负面反馈，把使用注意转化为专业服务感。",
+      "brand": "美诺",
+      "source_url": "",
+      "event_date": "2026-08-19",
+      "used_hy3": true,
+      "ai_sentiment": "light_negative",
+      "ai_reason": "横评提示干皮注意+萌兰款表现亮眼，使用注意类轻负，非质量缺陷。",
+      "ai_relevant": "related",
+      "publish_date": "2026-08-19",
+      "time_missing": true,
+      "monitor_date": "2026-08-19"
+    }
+  ],
+  "hot_topics": [
+    {
+      "platform": "搜狐/全网",
+      "topic": "2026蜜粉饼横评：美诺萌兰限定款与纪梵希/CPB/NARS/Laura Mercier/MUFE同场PK，8.3μm粉径+皮脂吸附4.2mg/cm²·h领先",
+      "volume": 82,
+      "brand": "美诺",
+      "sentiment_level": "neutral",
+      "source_url": "",
+      "event_date": "2026-08-19",
+      "used_hy3": true,
+      "ai_sentiment": "neutral",
+      "ai_reason": "萌兰款与高端品牌同场PK数据领先，中性偏正面行业内容。",
+      "ai_relevant": "related",
+      "publish_date": "2026-08-19",
+      "time_missing": true,
+      "monitor_date": "2026-08-19",
+      "date": "2026-08-19"
+    }
+  ],
+  "dropdown_words": [
+    {
+      "word": "美诺萌兰粉饼",
+      "negative": false,
+      "platform": [
+        "全网搜索"
+      ],
+      "source_url": "",
+      "date": "2026-08-19",
+      "event_date": "2026-08-19"
+    }
+  ],
+  "trend": [
+    {
+      "date": "07-20",
+      "count": 19
+    },
+    {
+      "date": "07-27",
+      "count": 24
+    },
+    {
+      "date": "08-03",
+      "count": 23
+    },
+    {
+      "date": "08-10",
+      "count": 27
+    },
+    {
+      "date": "08-13",
+      "count": 26
+    },
+    {
+      "date": "08-16",
+      "count": 29
+    },
+    {
+      "date": "08-19",
+      "count": 32
+    }
+  ],
+  "platform_dist": [
+    {
+      "platform": "电商评价",
+      "count": 52
+    },
+    {
+      "platform": "小红书",
+      "count": 28
+    },
+    {
+      "platform": "抖音",
+      "count": 21
+    },
+    {
+      "platform": "微博",
+      "count": 11
+    },
+    {
+      "platform": "快手",
+      "count": 4
+    }
+  ],
+  "platform_summary": {},
+  "suggestions": [
+    "核查抖音官方旗舰店「干皮可用 / 不拔干」等宣传话术，避免过度承诺引发虚假宣传定性；前置敏感肌 / 干皮使用提示与妆前保湿建议（本期无新增高危投诉，维持监控）。",
+    "继续监控 P01/P07 等萌兰系列新品评论区（20万评论量级），关注「色号选择」「干皮保湿」「七夕礼盒」三类高频咨询，反向优化商品详情与种草内容。"
+  ],
+  "overview": {
+    "risk_level": "中",
+    "high_risk": 1,
+    "light_negative": 3,
+    "neutral": 5,
+    "positive": 10,
+    "filtered_same_name": 3
+  }
+}

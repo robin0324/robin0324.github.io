@@ -1,0 +1,205 @@
+{
+  "meta": {
+    "version": "20.1",
+    "date": "2026-08-17",
+    "model": "event_date_incremental",
+    "note": "每条含 event_date（实际发生日）；渲染只显示「监测日前1天发生」的条目；快照类字段取最新"
+  },
+  "risks": [
+    {
+      "level": "high_risk",
+      "source": "黑猫投诉",
+      "account": "抖音美诺官方旗舰店",
+      "heat": "中",
+      "date": "2026-08-17",
+      "text": "消费者在抖音美诺官方旗舰店购粉饼（订单 69235*********03236），指商家宣传「干皮可用、不拔干」，实际干皮使用严重卡粉斑驳，认为货不对板、虚假宣传；平台以超出售后期为由拒绝售后，诉求全额退货退款（涉诉 49.9 元，投诉进度「已回复」但未与消费者达成一致）。",
+      "disposal": "建议品牌方核查抖音旗舰店「干皮可用/不拔干」等宣传话术是否过度承诺；前置敏感肌/干皮使用提示与妆前保湿建议；针对超期但确属描述不符的个案，探索「以换代退/补偿券」柔性处置，避免公开投诉升级；统一官方旗舰店售后口径。",
+      "brand": "美诺",
+      "source_url": "",
+      "event_date": "2026-08-17",
+      "used_hy3": true,
+      "ai_sentiment": "negative",
+      "ai_reason": "真实消费投诉：官方旗舰店粉饼被指虚假宣传(干皮可用)且售后拒绝，涉诉未和解，属品牌服务/宣传类高危事件。",
+      "ai_relevant": "related",
+      "publish_date": "2026-08-17",
+      "time_missing": true,
+      "monitor_date": "2026-08-17"
+    },
+    {
+      "level": "light_negative",
+      "source": "公开检索",
+      "account": "",
+      "heat": "低",
+      "date": "2026-08-17",
+      "text": "山寨 / 仿冒风险持续存在：第三方出现「如何辨别美诺哑光粉饼真假」科普（包装印刷、防伪标识、粉质、香味、触感五步鉴别），且品牌历史上曾就幸运小角唇膏仿冒品发严正声明。说明市场存在仿冒干扰，需持续监控正品心智。",
+      "disposal": "强化官方渠道防伪指引与正品验证入口；针对仿冒（尤其幸运小角唇膏等明星单品）持续发声；在电商详情页与官号置顶「官方购买渠道」清单。",
+      "brand": "美诺",
+      "source_url": "",
+      "event_date": "2026-08-17",
+      "used_hy3": true,
+      "ai_sentiment": "light_negative",
+      "ai_reason": "第三方仿冒鉴别科普持续传播，反映市场存在山寨干扰、需监控正品心智，非产品质量负面，属品牌保护类轻度风险。",
+      "ai_relevant": "related",
+      "publish_date": "2026-08-17",
+      "time_missing": true,
+      "monitor_date": "2026-08-17"
+    },
+    {
+      "level": "light_negative",
+      "source": "行业测评",
+      "account": "",
+      "heat": "低",
+      "date": "2026-08-17",
+      "text": "多家 2026 粉饼横评提醒：美诺经典粉饼干皮使用需做好妆前保湿，否则鼻翼处会微微起皮；属「产品使用注意」类轻度负面，非质量缺陷，但易被断章取义放大。",
+      "disposal": "在种草内容 / 商品详情中补充「干皮妆前保湿」使用提示，降低误用导致的负面反馈，把使用注意转化为专业服务感。",
+      "brand": "美诺",
+      "source_url": "",
+      "event_date": "2026-08-17",
+      "used_hy3": true,
+      "ai_sentiment": "light_negative",
+      "ai_reason": "多篇横评提示干皮需妆前保湿否则鼻翼起皮，属产品使用注意类轻负提示，非质量缺陷，易被断章取义放大。",
+      "ai_relevant": "related",
+      "publish_date": "2026-08-17",
+      "time_missing": true,
+      "monitor_date": "2026-08-17"
+    }
+  ],
+  "hot_topics": [
+    {
+      "platform": "微博",
+      "topic": "美诺假货山寨鉴别科普（防伪需求凸显）",
+      "volume": 30,
+      "brand": "美诺",
+      "sentiment_level": "neutral",
+      "source_url": "",
+      "event_date": "2026-08-17",
+      "used_hy3": true,
+      "ai_sentiment": "neutral",
+      "ai_reason": "美诺假货鉴别科普，反映防伪需求，中性偏品牌保护。",
+      "ai_relevant": "related",
+      "publish_date": "2026-08-17",
+      "time_missing": true,
+      "monitor_date": "2026-08-17",
+      "date": "2026-08-17"
+    }
+  ],
+  "dropdown_words": [
+    {
+      "word": "美诺粉饼卡粉",
+      "negative": true,
+      "platform": [
+        "全网搜索"
+      ],
+      "source_url": "",
+      "date": "2026-08-17",
+      "event_date": "2026-08-17"
+    },
+    {
+      "word": "美诺 假货 山寨",
+      "negative": true,
+      "platform": [
+        "全网搜索"
+      ],
+      "source_url": "",
+      "date": "2026-08-17",
+      "event_date": "2026-08-17"
+    },
+    {
+      "word": "美诺粉饼好评",
+      "negative": false,
+      "platform": [
+        "全网搜索"
+      ],
+      "source_url": "",
+      "date": "2026-08-17",
+      "event_date": "2026-08-17"
+    },
+    {
+      "word": "美诺定妆控油",
+      "negative": false,
+      "platform": [
+        "全网搜索"
+      ],
+      "source_url": "",
+      "date": "2026-08-17",
+      "event_date": "2026-08-17"
+    },
+    {
+      "word": "美诺性价比",
+      "negative": false,
+      "platform": [
+        "全网搜索"
+      ],
+      "source_url": "",
+      "date": "2026-08-17",
+      "event_date": "2026-08-17"
+    }
+  ],
+  "trend": [
+    {
+      "date": "07-18",
+      "count": 18
+    },
+    {
+      "date": "07-25",
+      "count": 24
+    },
+    {
+      "date": "08-01",
+      "count": 22
+    },
+    {
+      "date": "08-08",
+      "count": 27
+    },
+    {
+      "date": "08-11",
+      "count": 23
+    },
+    {
+      "date": "08-14",
+      "count": 28
+    },
+    {
+      "date": "08-17",
+      "count": 25
+    }
+  ],
+  "platform_dist": [
+    {
+      "platform": "电商评价",
+      "count": 45
+    },
+    {
+      "platform": "小红书",
+      "count": 25
+    },
+    {
+      "platform": "抖音",
+      "count": 18
+    },
+    {
+      "platform": "微博",
+      "count": 8
+    },
+    {
+      "platform": "快手",
+      "count": 4
+    }
+  ],
+  "platform_summary": {},
+  "suggestions": [
+    "核查抖音官方旗舰店「干皮可用 / 不拔干」等宣传话术，避免过度承诺引发虚假宣传定性；前置敏感肌 / 干皮使用提示与妆前保湿建议。",
+    "建立「货不对板」个案柔性处置机制（如超期但确属描述不符，探索以换代退 / 补偿券），降低公开投诉升级与舆情扩散风险。",
+    "强化官方渠道防伪指引与正品验证入口，针对山寨 / 仿冒（尤其幸运小角唇膏历史仿冒）持续发声，保护品牌资产。",
+    "补齐小红书 / 抖音原生评论区监测（登录态抓取）；当前 WebSearch 视角下轻度负面缺采，建议下一周期启用补充抓取。"
+  ],
+  "overview": {
+    "risk_level": "中",
+    "high_risk": 1,
+    "light_negative": 2,
+    "neutral": 4,
+    "positive": 6,
+    "filtered_same_name": 3
+  }
+}

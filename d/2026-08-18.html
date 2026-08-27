@@ -751,6 +751,16 @@ a:hover { text-decoration:underline; }
 .pager-btn:hover:not(:disabled) { border-color:var(--brand); color:var(--brand); }
 .pager-btn:disabled { opacity:.4; cursor:not-allowed; }
 .pager-info { font-size:13px; color:var(--text2); font-weight:600; }
+/* V23.2：翻页跳转输入框 */
+.pager-jump { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text2); font-weight:600; }
+.pager-input {
+  width:52px; padding:6px 8px; border:1px solid var(--border); border-radius:20px;
+  text-align:center; font-size:13px; font-weight:700; color:var(--text); background:#fff;
+  -moz-appearance:textfield;
+}
+.pager-input::-webkit-outer-spin-button, .pager-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+.pager-input:focus { outline:none; border-color:var(--brand); }
+.pager-go { padding:6px 14px; }
 
 /* ─── 代言：头衔标签化 + 来源右移 ─── */
 .end-tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:5px; align-items:center; }
@@ -1683,6 +1693,8 @@ function setupPager(opts) {
   nav.className = 'pager-nav';
   nav.innerHTML = '<button class="pager-btn" data-dir="-1">‹ 上一页</button>' +
     '<span class="pager-info"></span>' +
+    '<span class="pager-jump">跳至 <input class="pager-input" type="number" min="1" value="1" /> 页</span>' +
+    '<button class="pager-btn pager-go">跳转</button>' +
     '<button class="pager-btn" data-dir="1">下一页 ›</button>';
   const anchor = document.getElementById(insertAfterId) || container;
   anchor.parentNode.insertBefore(nav, anchor.nextSibling);
@@ -1696,9 +1708,23 @@ function setupPager(opts) {
     nav.querySelector('.pager-info').textContent = '第 ' + (cur+1) + ' / ' + vPages + ' 页 · 共 ' + vTotal + ' 条';
     nav.querySelector('[data-dir="-1"]').disabled = (cur === 0);
     nav.querySelector('[data-dir="1"]').disabled = (cur >= vPages-1);
+    // V23.2：同步跳转输入框（值=当前页，max=总页数，随筛选实时更新）
+    const inp = nav.querySelector('.pager-input');
+    if(inp){ inp.max = vPages; inp.value = cur + 1; }
   }
   nav.querySelector('[data-dir="-1"]').addEventListener('click', function(){ if(cur>0){cur--; render();} });
   nav.querySelector('[data-dir="1"]').addEventListener('click', function(){ if(cur<vPages-1){cur++; render();} });
+  // V23.2：跳转至指定页（点击「跳转」或输入框回车）
+  function doJump() {
+    const inp = nav.querySelector('.pager-input');
+    let v = parseInt(inp.value, 10);
+    if(isNaN(v)) v = 1;
+    v = Math.min(Math.max(v, 1), vPages);
+    cur = v - 1;
+    render();
+  }
+  nav.querySelector('.pager-go').addEventListener('click', doJump);
+  nav.querySelector('.pager-input').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); doJump(); } });
   // V22.1b：暴露 showItem —— 翻到包含指定条目的页（全局搜索跨日期定位用）
   function showItem(el){
     const vis = filterFn ? items.filter(filterFn) : items.slice();
@@ -1726,6 +1752,8 @@ function setupProductFilter() {
   nav.className = 'pager-nav';
   nav.innerHTML = '<button class="pager-btn" data-dir="-1">‹ 上一页</button>' +
     '<span class="pager-info"></span>' +
+    '<span class="pager-jump">跳至 <input class="pager-input" type="number" min="1" value="1" /> 页</span>' +
+    '<button class="pager-btn pager-go">跳转</button>' +
     '<button class="pager-btn" data-dir="1">下一页 ›</button>';
   const table = document.getElementById('prodTable');
   if(table && table.parentNode) table.parentNode.insertBefore(nav, table.nextSibling);
@@ -1745,10 +1773,27 @@ function setupProductFilter() {
     nav.querySelector('[data-dir="-1"]').disabled = (cur === 0);
     nav.querySelector('[data-dir="1"]').disabled = (cur >= pages-1);
     nav.style.display = (filtered.length > perPage) ? '' : 'none';
+    // V23.2：同步跳转输入框
+    const inp = nav.querySelector('.pager-input');
+    if(inp){ inp.max = pages; inp.value = cur + 1; }
   }
   // ⚠️ 翻页按钮监听
   nav.querySelector('[data-dir="-1"]').addEventListener('click', function(){ if(cur>0){cur--; apply();} });
   nav.querySelector('[data-dir="1"]').addEventListener('click', function(){ if(cur < Math.ceil((window._prodBrandKey ? allRows.filter(r => (r.dataset.brand||'')===window._prodBrandKey) : allRows).length/perPage)-1){cur++; apply();} });
+  // V23.2：跳转至指定页
+  function doJump() {
+    const inp = nav.querySelector('.pager-input');
+    let v = parseInt(inp.value, 10);
+    if(isNaN(v)) v = 1;
+    const bk = window._prodBrandKey || '';
+    const total = (bk ? allRows.filter(r => (r.dataset.brand||'')===bk) : allRows).length;
+    const pages = Math.max(1, Math.ceil(total / perPage));
+    v = Math.min(Math.max(v, 1), pages);
+    cur = v - 1;
+    apply();
+  }
+  nav.querySelector('.pager-go').addEventListener('click', doJump);
+  nav.querySelector('.pager-input').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); doJump(); } });
   apply();
 }
 
@@ -1787,6 +1832,9 @@ function toggleProdBrand(brand) {
   if(prev) prev.disabled = (cur === 0);
   if(next) next.disabled = (cur >= pages-1);
   nav.style.display = (filtered.length > perPage) ? '' : 'none';
+  // V23.2：品牌切换重置到第 1 页，同步跳转输入框
+  const jinp = nav.querySelector('.pager-input');
+  if(jinp){ jinp.max = pages; jinp.value = 1; }
 }
 
 // ─── V21：明星代言动态：形态筛选（全部 / 新签 / 升级 / 活动亮相） ───

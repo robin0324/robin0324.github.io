@@ -285,12 +285,16 @@ a:hover { text-decoration:underline; }
 .end-item:hover { background:var(--brand-light); border-color:var(--brand-accent); }
 .end-date {
   flex-shrink:0; width:72px; text-align:center; padding-top:2px;
+  display:flex; flex-direction:column; align-items:center;
 }
 .end-date .d-month { font-size:11px; color:var(--text2); text-transform:uppercase; }
 .end-date .d-day { font-size:22px; font-weight:700; color:var(--brand); line-height:1.1; }
 .end-info { flex:1; min-width:0; }
-.end-thumb { flex-shrink:0; width:88px; height:88px; object-fit:cover; border-radius:10px; border:1px solid var(--border); background:var(--brand-light); cursor:pointer; transition:transform .2s; }
+.end-thumb-wrap { position:relative; margin-top:8px; }
+.end-thumb { display:block; width:72px; height:72px; object-fit:cover; border-radius:10px; border:1px solid var(--border); background:var(--brand-light); cursor:pointer; transition:transform .2s; }
 .end-thumb:hover { transform:scale(1.04); box-shadow:0 2px 8px rgba(0,0,0,.12); }
+.end-thumb-lg { position:absolute; top:50%; left:calc(100% + 10px); transform:translateY(-50%); width:220px; height:auto; max-height:300px; object-fit:cover; border-radius:10px; border:1px solid var(--border); background:#fff; box-shadow:0 6px 24px rgba(0,0,0,.18); display:none; z-index:100; }
+.end-thumb-wrap:hover .end-thumb-lg { display:block; }
 .end-brand { font-weight:700; font-size:14px; color:var(--text); }
 .end-detail { font-size:13px; color:var(--text2); margin-top:3px; line-height:1.5; }
 /* V17.1：代言事件卡片增强 — 事件性质副标题 + 营销动作/市场反响区块 + 话题提示 */
@@ -903,7 +907,7 @@ a:hover { text-decoration:underline; }
   .end-risk { padding:3px 8px; font-size:11px; min-width:auto; }
   .end-risk-label { display:none; }
   .end-info { grid-area:info; min-width:0; }
-  .end-thumb { display:none; }
+  .end-thumb-wrap { display:none; }
   .end-brand { overflow-wrap:break-word; word-break:break-word; }
   .end-tags { margin-bottom:4px; }
   .end-block { flex-direction:column; gap:4px; padding:8px 10px; }

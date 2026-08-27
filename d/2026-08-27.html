@@ -1638,10 +1638,11 @@ function maybeLoadHistoricalDate(){
       document.open();
       document.write(html);
       document.close();
-      // V23.3：CDN 加载写入后 DOMContentLoaded 不会再次触发，主动执行 hash 定位
-      if(location.hash.indexOf('hit=') >= 0){
-        setTimeout(applySearchHitFromHash, 600);
-      }
+      // V23.3：CDN 加载写入后 DOMContentLoaded 不会再次触发 —— 手动初始化看板交互（翻页/筛选/搜索定位），
+      // 使历史快照与最新日期体验完全一致（超出 12 天的日期仅加载方式不同）。
+      initDashboard();
+      // 与本地加载一致：解析 #hit= 自动定位高亮（无 hit 时内部自动 return，安全无副作用）
+      setTimeout(applySearchHitFromHash, 600);
     })
     .catch(err => {
       document.body.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#666;"><div style="font-size:48px;margin-bottom:16px;">⚠️</div><div style="font-size:18px;font-weight:600;color:#C62828;">加载 ' + ds + ' 历史快照失败</div><div style="margin-top:8px;color:#999;max-width:400px;text-align:center;">' + esc(String(err)) + '</div><a href="/" style="margin-top:20px;color:#E85687;">返回首页</a></div>';
@@ -1649,9 +1650,12 @@ function maybeLoadHistoricalDate(){
   return true;
 }
 
-// 点击遮罩关闭
-document.addEventListener('DOMContentLoaded', function() {
-  if(maybeLoadHistoricalDate()) return; // 已触发历史加载，终止当前文档初始化
+// V23.3：历史快照（CDN document.write）不会再次触发 DOMContentLoaded，
+// 故将初始化抽成 initDashboard()，既供 DOMContentLoaded 调用，也供 CDN 写入后手动调用，
+// 使选择 12 天以上历史日期时与最新日期体验完全一致。
+function initDashboard(){
+  if(window.__dashInited) return;   // 防重复初始化（极端浏览器在 document.write 后仍可能触发一次）
+  window.__dashInited = true;
   initCalendar();
   // V19：类型按钮筛选无需初始化（默认显示全部）
   // 代言 / 营销 翻页（>5条）
@@ -1676,6 +1680,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if(e.target === overlay) closeNodeModal();
     });
   }
+}
+
+// 点击遮罩关闭
+document.addEventListener('DOMContentLoaded', function() {
+  if(maybeLoadHistoricalDate()) return; // 已触发历史加载，终止当前文档初始化
+  initDashboard();
 });
 
 // ─── 通用分页器：条数 > perPage 时显示「上一页 / 下一页」翻页条，每页 perPage 条 ───

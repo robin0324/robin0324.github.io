@@ -293,7 +293,7 @@ a:hover { text-decoration:underline; }
 .end-thumb-wrap { position:relative; margin-top:8px; }
 .end-thumb { display:block; width:72px; height:72px; object-fit:cover; border-radius:10px; border:1px solid var(--border); background:var(--brand-light); cursor:pointer; transition:transform .2s; }
 .end-thumb:hover { transform:scale(1.04); box-shadow:0 2px 8px rgba(0,0,0,.12); }
-.end-thumb-lg { position:absolute; top:50%; left:calc(100% + 10px); transform:translateY(-50%); width:220px; height:auto; max-height:300px; object-fit:cover; border-radius:10px; border:1px solid var(--border); background:#fff; box-shadow:0 6px 24px rgba(0,0,0,.18); display:none; z-index:100; }
+.end-thumb-lg { position:absolute; top:50%; left:calc(100% + 10px); right:auto; transform:translateY(-50%); width:300px; height:auto; max-height:400px; max-width:calc(100vw - 120px); object-fit:cover; border-radius:10px; border:1px solid var(--border); background:#fff; box-shadow:0 6px 24px rgba(0,0,0,.18); display:none; z-index:100; }
 .end-thumb-wrap:hover .end-thumb-lg { display:block; }
 .end-brand { font-weight:700; font-size:14px; color:var(--text); }
 .end-detail { font-size:13px; color:var(--text2); margin-top:3px; line-height:1.5; }

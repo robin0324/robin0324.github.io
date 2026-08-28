@@ -335,6 +335,10 @@ a:hover { text-decoration:underline; }
 .topic-date .d-day, .trend-date .d-day { font-size:22px; font-weight:700; color:var(--brand); line-height:1.1; }
 .date-empty { font-size:12px; color:#b9b9c0; }
 .empty-note { padding:22px 16px; text-align:center; color:var(--text2); font-size:13px; background:var(--brand-light); border-radius:10px; }
+/* 平台热点空态：带定位说明，避免被误判为采集故障 */
+.empty-note.hot-empty { padding:20px 18px; line-height:1.75; }
+.hot-empty-title { font-size:14px; font-weight:600; color:var(--text); margin-bottom:7px; }
+.hot-empty-desc { font-size:12px; color:var(--text2); max-width:660px; margin:0 auto; }
 .end-source a {
   display:inline-flex; align-items:center; gap:3px; color:var(--brand);
   font-size:12px; padding:2px 6px; border-radius:4px; background:var(--brand-light);
@@ -1159,9 +1163,9 @@ a:hover { text-decoration:underline; }
     <h2><span class="icon">🔥</span> 平台热点</h2>
     <span class="mod-badge">0 个热点 · 当日新增</span>
   </div>
-  <p class="sec-desc">仅展示当日（2026-08-21）新增平台热点，历史不累加；本板块聚焦各主流平台（小红书 / 抖音 / 微信 / 微博 / 快手 / B站）官方口径的热点——含平台热搜榜、热门话题榜、热门资讯，以及平台自身的重大更新、迭代与新业务动作；已筛选美妆护肤、女性为主市场的强相关信号，供品牌借势参考。</p>
+  <p class="sec-desc">仅展示当日（2026-08-21）新增平台热点，历史不累加；本板块聚焦小红书 / 抖音 / 微信 / 微博 / 快手 / B站等主流平台的「官方口径热点」与「平台每日热点」——既含平台热搜榜、热门话题榜、热门资讯，以及平台自身的重大更新、新业务、新政策与新形态，也含平台上正在发酵的热点话题与趋势；来源除平台官方发布外，亦纳入千瓜、飞瓜、蝉妈妈等与平台深度关联的第三方数据平台；已筛选美妆护肤、女性为主市场的强相关信号，供品牌借势参考。</p>
   <div class="mod-body">
-      <div class="topic-list" id="hotList"><div class="empty-note">当日无新增平台热点</div></div>
+      <div class="topic-list" id="hotList"><div class="empty-note hot-empty"><div class="hot-empty-title">今日无平台官方热点更新</div><div class="hot-empty-desc">本板块仅收录平台官方口径热点（热搜榜 / 热门话题榜 / 平台重大更新·新业务·新政策）及与平台深度关联的第三方数据（千瓜 · 飞瓜 · 蝉妈妈）；该日期暂无符合上述标准的内容，属正常情况，非采集异常。</div></div></div>
   </div>
 </section>
 

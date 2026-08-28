@@ -1632,17 +1632,24 @@ function maybeLoadHistoricalDate(){
       return r.text();
     })
     .then(html => {
-      // 防止写入的 d/ 历史页再次触发 maybeLoadHistoricalDate 造成无限循环（旧页内同样含该调用）；
-      // 去掉该调用后，旧页仅保留 applySearchHitFromHash，可正常按 #hit 定位高亮。
-      html = html.split('if(maybeLoadHistoricalDate()) return;').join('/* cdn-view: 历史快照已加载，跳过再次加载 */');
-      document.open();
-      document.write(html);
-      document.close();
-      // V23.3：CDN 加载写入后 DOMContentLoaded 不会再次触发 —— 手动初始化看板交互（翻页/筛选/搜索定位），
-      // 使历史快照与最新日期体验完全一致（超出 12 天的日期仅加载方式不同）。
-      initDashboard();
-      // 与本地加载一致：解析 #hit= 自动定位高亮（无 hit 时内部自动 return，安全无副作用）
-      setTimeout(applySearchHitFromHash, 600);
+      // V23.3 修复：历史快照（>12天）经 CDN 拉取后，原方案用 document.write 写入整页，
+      // 但 document.write 在文档已加载后不会再次触发 DOMContentLoaded，手动派发也因浏览器实现差异而不稳定，
+      // 导致翻页/筛选失效。现改为：用 DOMParser 解析快照，把「已渲染好的正文」直接注入当前页面 body，
+      // 再调用当前页面自身、已在最新日期验证可用的 initDashboard() 完成翻页/筛选/搜索定位绑定。
+      // 当前页 <head> 脚本（initDashboard/setupPager/setupProductFilter/initCalendar…）始终保留，作用域确定，
+      // 体验与最新日期完全一致；且不依赖重新推送 CDN 快照（旧快照同样可正常初始化）。
+      try {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        document.body.innerHTML = doc.body.innerHTML;
+        window.__dashInited = false;   // 复位守卫，确保历史视图也能完整初始化
+        initDashboard();               // 复用当前页（最新日期同款）初始化逻辑
+        if(location.hash.indexOf('hit=') >= 0) setTimeout(applySearchHitFromHash, 600);
+      } catch(err) {
+        document.body.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#666;">' +
+          '<div style="font-size:48px;margin-bottom:16px;">⚠️</div>' +
+          '<div style="font-size:18px;font-weight:600;color:#C62828;">历史快照解析失败</div>' +
+          '<div style="margin-top:8px;color:#999;">' + esc(String(err)) + '</div></div>';
+      }
     })
     .catch(err => {
       document.body.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#666;"><div style="font-size:48px;margin-bottom:16px;">⚠️</div><div style="font-size:18px;font-weight:600;color:#C62828;">加载 ' + ds + ' 历史快照失败</div><div style="margin-top:8px;color:#999;max-width:400px;text-align:center;">' + esc(String(err)) + '</div><a href="/" style="margin-top:20px;color:#E85687;">返回首页</a></div>';

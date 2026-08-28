@@ -1657,12 +1657,65 @@ function maybeLoadHistoricalDate(){
   return true;
 }
 
+// V23.3：兼容旧快照（>12 天前的 CDN 快照）的「明星代言」筛选按钮结构。
+// 旧结构把 label 和 button 直接平铺在 .end-filters 下；新版改成每行一个 .end-filter-row，
+// 内包 label + .end-filter-btns。若直接注入旧 body，新版 CSS 会让按钮纵向独占一行。
+// 此函数在 initDashboard 前执行，把旧结构升级为新版结构（幂等）。
+function upgradeLegacyEndorseFilters(){
+  document.querySelectorAll('.end-filters').forEach(function(root){
+    if(root.querySelector('.end-filter-row')) return; // 已是新结构，跳过
+    const children = Array.prototype.slice.call(root.childNodes);
+    const rows = [];
+    let currentLabel = null;
+    let currentBtns = [];
+    function flushRow(){
+      if(!currentLabel && currentBtns.length === 0) return;
+      const row = document.createElement('div');
+      row.className = 'end-filter-row';
+      if(currentLabel) row.appendChild(currentLabel);
+      if(currentBtns.length){
+        const wrap = document.createElement('div');
+        wrap.className = 'end-filter-btns';
+        currentBtns.forEach(function(b){ wrap.appendChild(b); });
+        row.appendChild(wrap);
+      }
+      rows.push(row);
+      currentLabel = null;
+      currentBtns = [];
+    }
+    children.forEach(function(node){
+      if(node.nodeType === 1 && node.classList && node.classList.contains('end-filters-label')){
+        if(currentLabel || currentBtns.length) flushRow();
+        currentLabel = node;
+      } else if(node.nodeType === 1 && node.classList && node.classList.contains('end-filter-btn')){
+        currentBtns.push(node);
+      } else if(node.nodeType === 3 && (node.textContent || '').trim() === ''){
+        // 忽略空白文本节点
+      } else {
+        // 其它节点（不应出现）放到当前 row 末尾兜底
+        if(currentBtns.length) currentBtns.push(node);
+        else if(currentLabel){
+          flushRow();
+          rows.push(node);
+        } else {
+          rows.push(node);
+        }
+      }
+    });
+    flushRow();
+    root.innerHTML = '';
+    rows.forEach(function(r){ root.appendChild(r); });
+  });
+}
+
 // V23.3：历史快照（CDN document.write）不会再次触发 DOMContentLoaded，
 // 故将初始化抽成 initDashboard()，既供 DOMContentLoaded 调用，也供 CDN 写入后手动调用，
 // 使选择 12 天以上历史日期时与最新日期体验完全一致。
 function initDashboard(){
   if(window.__dashInited) return;   // 防重复初始化（极端浏览器在 document.write 后仍可能触发一次）
   window.__dashInited = true;
+  // 先升级旧快照结构，再用最新 CSS/JS 初始化
+  upgradeLegacyEndorseFilters();
   initCalendar();
   // V19：类型按钮筛选无需初始化（默认显示全部）
   // 代言 / 营销 翻页（>5条）
@@ -1960,7 +2013,10 @@ function gotoSearchHit(sec, title, date){
   // 先记录目标，跳转/加载失败时可在目标页兜底恢复
   try { sessionStorage.setItem('__menow_search_hit', JSON.stringify({sec: sec, title: title, date: date})); } catch(e){}
   closeSearch();
-  const curDate = (typeof DATA !== 'undefined' && DATA.meta && DATA.meta.date) ? DATA.meta.date : '';
+  // V23.3 修复：CDN 注入历史快照后 DATA 仍是首页（最新日期）数据，
+  // 因此当前视图日期必须优先从 URL ?date= 读取，否则跨日期搜索会被误判为同日。
+  const urlDate = new URLSearchParams(window.location.search).get('date') || '';
+  const curDate = urlDate || ((typeof DATA !== 'undefined' && DATA.meta && DATA.meta.date) ? DATA.meta.date : '');
   if(date && date !== curDate){
     const localSet = new Set(LOCAL_DATES);
     const availSet = new Set(AVAILABLE_DATES);
